@@ -16,14 +16,30 @@ $(document).ready(function() {
 		var windowWidth = $(window).width();
 		var windowHeight = $(window).height();
 
-		var toggleForceFullWidth = false;
+		var windowSize = windowHeight;
+		//Flow Layout
+		var isPortrait = false;
 		if(windowWidth < windowHeight){
-			toggleForceFullWidth = true;
-			// alert("Force Full Width - true");
-		}else{
-			// alert("Force Full Width - false");
+			isPortrait = true;
+			windowSize = windowWidth;
 		}
-		$('.leftBox').toggleClass('forceFullWidth',toggleForceFullWidth);
+		$('.leftBox').toggleClass('forceFullWidth',isPortrait); //Portrait -> Full width
+
+
+		//Multi Res
+		var isHighRes = (windowHeight > 768);
+		var resFactor = (isHighRes)? 2 : 1;
+		
+		var svgBannerHeight = 60 * resFactor;
+		if(isPortrait){
+			svgBannerHeight *= 1.1;
+		}
+		$('.svgBanner').css("height", svgBannerHeight + "px");
+		$(".sectionDownArrow").css("height", 44 * resFactor + "px");
+		$(".sectionDownArrow").css("line-height", 44 * resFactor + "px");
+		$(".sectionDownArrow").css("font-size", 1.5 * resFactor + "em");
+		
+		
 	}
 	updateLayout(); //Update Layout
 	$(window).resize(function() {

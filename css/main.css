@@ -102,26 +102,6 @@ h1{
 	padding: 0 0 0 0;
 	bottom: 0px;
 }
-/* Banner */
-/*.svgBannerContainer{
-	position: absolute;
-	width: 20%;
-	height: 20%;
-	text-align:center;
-}*/
-.androidSVGBanner {
-	max-height: 10em;
-	min-height: 2em;
-	/*width: 30%;*/
-	margin-left: 1%;
-	margin-right: 1%;
-}
-.iOSSVGBanner{
-	max-height: 10em;
-	min-height: 2em;
-	/*width: 30%;*/
-	margin-left: 1%;
-	margin-right: 1%;
-/*	padding-left: 1%;
-	padding-right: 1%;*/
+.svgBanner{
+	height: 60px;
 }
