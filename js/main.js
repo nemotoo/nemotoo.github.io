@@ -28,11 +28,11 @@ $(document).ready(function() {
 
 		//Multi Res
 		var isHighRes = (windowHeight > 768);
-		var resFactor = (isHighRes)? 2 : 1;
+		var resFactor = (isHighRes)? 1.5 : 1;
 		
-		var svgBannerHeight = 60 * resFactor;
+		var svgBannerHeight = 50 * resFactor;
 		if(isPortrait){
-			svgBannerHeight *= 1.1;
+			svgBannerHeight *= 1.2;
 		}
 		$('.svgBanner').css("height", svgBannerHeight + "px");
 		$(".sectionDownArrow").css("height", 44 * resFactor + "px");
