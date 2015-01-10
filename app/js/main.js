@@ -1,11 +1,26 @@
 $(document).ready(function() {
+	var headerBackgroundColor = '#333';
 	//Setup Sections
 	var sectionNames = ['blockmaster', 'portal'];
 	var sectionColors = ['#4FE084', '#2E2E2E'];
 	$('#fullpage').fullpage({
 		anchors: sectionNames,
 		sectionsColor: sectionColors,
-		css3: true
+		css3: true,
+		onLeave: function(index, nextIndex, direction){
+            var header = $('#header');
+            header.fadeOut(300);
+		},
+		afterLoad: function(anchorLink, index){
+			var newHeaderBackgroundColor = headerBackgroundColor;
+            //using index - index starts from 1
+            if(index > 1){
+            	newHeaderBackgroundColor = sectionColors[index - 2];
+            }
+			var header = $('#header');
+			header.css("background-color", newHeaderBackgroundColor);
+			header.fadeIn(200);
+        }
 	});
 	$('#toSection1').css( "background-color", sectionColors[1]);
 	$('#toSection1').attr("href","#"+sectionNames[1]);
