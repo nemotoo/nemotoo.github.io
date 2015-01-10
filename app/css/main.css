@@ -86,21 +86,21 @@ h1{
 	display:block;
 	width: 100%;
 	background: #333;
-	z-index:9;
+	z-index:8;
 	text-align:center;
-	color: #f2f2f2;
+	color: #F9F9F9;
 }
 #footer{
 	font-size: 1em;
 	letter-spacing: 1px;
-	position:absolute;
+	position:fixed;
 	height: 44px;
 	line-height: 44px;
 	display:block;
 	width: 100%;
-	z-index:9;
+	z-index:6;
 	text-align:right;
-	color: #f2f2f2;
+	color: #F9F9F9;
 	padding: 0 0 0 0;
 	bottom: -1px;
 	text-decoration:none;
@@ -111,14 +111,24 @@ h1{
 	height: 88px;
 	line-height: 88px;
 	display:block;
-	width: 100%;
+	width: 20%;
 	z-index:9;
 	text-align:center;
 	color: #f2f2f2;
-	padding: 0 0 0 0;
+	/*padding: 1px 10px 1px 10px;*/
 	bottom: 0px;
 	text-decoration:none;
+	cursor: pointer;
+
+	/* Only round the top corners */
+	-webkit-border-top-left-radius: 15px;
+	-webkit-border-top-right-radius: 20px;
+	-moz-border-radius-topleft: 15px;
+	-moz-border-radius-topright: 20px;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 20px; 
 }
+
 .svgBanner{
 	height: 60px;
 }
