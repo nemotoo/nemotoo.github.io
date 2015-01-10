@@ -75,7 +75,9 @@ h1{
 	margin:0;
 	padding:0;
 }
-
+.svgBanner{
+	height: 60px;
+}
 /* Fixed header and footer.
 * --------------------------------------- */
 #header{
@@ -120,21 +122,32 @@ h1{
 	text-decoration:none;
 	cursor: pointer;
 }
-.sectionDownArrow{
-	letter-spacing: 1px;
-	font-size: 3em;
-	position:absolute;
-	height: 88px;
-	line-height: 88px;
+.sectionDownTabHolder{
 	display:block;
-	width: 30%;
+	letter-spacing: 1px;
+	/*font-size: 3em;*/
+	position:absolute;
+
+	width: 100%;
+	height: 88px;
 	z-index:5;
 	text-align:center;
 	color: #f2f2f2;
 	bottom: 0px;
 	text-decoration:none;
 	cursor: pointer;
+	white-space:nowrap;
+	float:left;
+}
+.sectionDownTab, .sectionDownBottomRightCorner, .sectionDownBottomRightCornerInverse{
+	display:inline-block;
+	position: relative;
+	float:left;	
 
+	height: 100%;
+	bottom: 0px;
+}
+.sectionDownTab{
 	/*Shadow*/
 	-webkit-box-shadow: 0px -4px 5px 0px rgba(0,0,0,0.2);
 	-moz-box-shadow: 0px -4px 5px 0px rgba(0,0,0,0.2);
@@ -142,13 +155,31 @@ h1{
 
 	/* Only round the top corners */
 	-webkit-border-top-left-radius: 15px;
-	-webkit-border-top-right-radius: 20px;
 	-moz-border-radius-topleft: 15px;
-	-moz-border-radius-topright: 20px;
 	border-top-left-radius: 15px;
+
+	-webkit-border-top-right-radius: 20px;
+	-moz-border-radius-topright: 20px;
 	border-top-right-radius: 20px; 
+	z-index: 4;
+}
+.sectionDownBottomRightCorner{	
+	width: 10px;
+	background-color: #FCC;		
+	z-index: 5;
 }
 
-.svgBanner{
-	height: 60px;
+.sectionDownBottomRightCornerInverse{
+	width: 10px;
+	left: -10px;
+	background-color: #FFF;
+
+	z-index: 6;
+
+	/* Bottom corners */
+	-webkit-border-bottom-left-radius: 80%;
+	-moz-border-radius-bottomleft: 80%;
+	border-bottom-left-radius: 80%; 
+
+
 }

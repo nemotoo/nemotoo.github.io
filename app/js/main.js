@@ -59,19 +59,27 @@ $(document).ready(function() {
 			footer.fadeIn(200);
         }
 	})
-	$('.sectionDownArrow').each(function(index){
-		var sectionDownArrow = $('#section' + index + ' .sectionDownArrow')
+	$('.sectionDownTabHolder').each(function(index){
+		var sectionObject = $('#section'+index);
+
+		var sectionDownTab =  sectionObject.find('.sectionDownTab')
+		var sectionDownBottomRightCorner = sectionObject.find('.sectionDownBottomRightCorner');
+		var sectionDownBottomRightCornerInverse = sectionObject.find('.sectionDownBottomRightCornerInverse');
+
 		var nextSectionIndex = index + 1;
 		if(nextSectionIndex == numOfSections){
 			nextSectionIndex = 0;
 		}
-		sectionDownArrow.css( "background-color", sectionBackgroundColors[nextSectionIndex])
-		sectionDownArrow.css( "color", sectionFontColors[nextSectionIndex])
-		sectionDownArrow.text("  #"+sectionTitles[nextSectionIndex]+"  ");
-		sectionDownArrow.click(function(e){
+		sectionDownTab.css( "background-color", sectionBackgroundColors[nextSectionIndex]) //Next section background
+		sectionDownBottomRightCorner.css( "background-color", sectionBackgroundColors[nextSectionIndex]) //Same as tab
+		sectionDownBottomRightCornerInverse.css( "background-color", sectionBackgroundColors[index]) //Background
+
+		sectionDownTab.css( "color", sectionFontColors[nextSectionIndex])
+		sectionDownTab.click(function(e){
 			e.stopPropagation();
 			$.fn.fullpage.moveSectionDown();	
 		})
+		sectionDownTab.find(".sectionDownTabText").text("#"+sectionTitles[nextSectionIndex]);
 	})
 	$('#footer').click(function (e){
 		e.stopPropagation();
@@ -111,6 +119,7 @@ $(document).ready(function() {
 		$("body").css("font-weight", (isMobile)? 200 : 100)
 		$("body").css("font-size", ((needsToZoom)? 150 : 100) + "%") // Bigger font in low res
 
+		$('.svgBanner').css("height", ((needsToZoom)? 100 : 60) + "px")
 		
 		$("#header").css("height", 80 * resFactor + "px")
 		$("#header").css("line-height", 80 * resFactor + "px")
@@ -120,14 +129,12 @@ $(document).ready(function() {
 		$("#footer").css("line-height", 44 * resFactor + "px")
 		$("#footer").css("font-size", 1 * resFactor + "em")
 
+		var sectionDownTabHolderHeight = 44 * resFactor + "px";
+		$(".sectionDownTabHolder").css("height", sectionDownTabHolderHeight)
 
-		$(".sectionDownArrow").css("height", 44 * resFactor + "px")
-		$(".sectionDownArrow").css("line-height", 44 * resFactor + "px")
-		$(".sectionDownArrow").css("font-size", 1 * resFactor + "em")
-		$(".sectionDownArrow").css("width", 20 * resFactor + "%")
-
-
-		$('.svgBanner').css("height", ((needsToZoom)? 100 : 60) + "px")
+		$(".sectionDownTab").css("width", 20 * resFactor + "%")
+		$(".sectionDownTab").css("line-height", sectionDownTabHolderHeight)
+		$(".sectionDownTab").css("font-size", 1 * resFactor + "em")
 		
 	}
 	updateLayout(); //Update Layout
