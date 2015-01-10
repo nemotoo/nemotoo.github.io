@@ -4,8 +4,8 @@ $(document).ready(function() {
 	var sectionTitles =["Block Master","Portal"];
 	var numOfSections = sectionTitles.length;
 
-	var sectionBackgroundColors = ['#F9F9F9','#666666','#F9F9F9']
-	var sectionFontColors = ['#666666','#F9F9F9','#666666']
+	var sectionBackgroundColors = ['#F9F9F9','#666666']
+	var sectionFontColors = ['#666666','#F9F9F9']
 
 	function updateHeaderWithSection(section){
 
@@ -68,11 +68,13 @@ $(document).ready(function() {
 		sectionDownArrow.css( "background-color", sectionBackgroundColors[nextSectionIndex])
 		sectionDownArrow.css( "color", sectionFontColors[nextSectionIndex])
 		sectionDownArrow.text("  #"+sectionTitles[nextSectionIndex]+"  ");
-		// sectionDownArrow.click(function(){
-		// 	$.fn.fullpage.moveSectionDown();	
-		// })
+		sectionDownArrow.click(function(e){
+			e.stopPropagation();
+			$.fn.fullpage.moveSectionDown();	
+		})
 	})
-	$('#footer').click(function (){
+	$('#footer').click(function (e){
+		e.stopPropagation();
 		$.fn.fullpage.moveSectionDown();
 	})
 	//TODO : Routing
