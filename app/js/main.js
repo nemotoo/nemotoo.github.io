@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	//Setup Sections
-	var sectionNames = ['giantshield', 'portal'];
+	var sectionNames = ['blockmaster', 'portal'];
 	var sectionColors = ['#4FE084', '#2E2E2E'];
 	$('#fullpage').fullpage({
 		anchors: sectionNames,
@@ -44,10 +44,17 @@ $(document).ready(function() {
 		$("body").css("font-weight", (needsToZoom)? 200 : 100);
 		$("body").css("font-size", ((needsToZoom)? 150 : 100) + "%"); // Bigger font in low res
 
-		$('.svgBanner').css("height", ((needsToZoom)? 100 : 60) + "px");
+		
+		$("#header").css("height", 80 * resFactor + "px");
+		$("#header").css("line-height", 80 * resFactor + "px");
+		$("#header").css("font-size", 2 * resFactor + "em");
+
 		$(".sectionDownArrow").css("height", 44 * resFactor + "px");
 		$(".sectionDownArrow").css("line-height", 44 * resFactor + "px");
 		$(".sectionDownArrow").css("font-size", 1.5 * resFactor + "em");
+
+
+		$('.svgBanner').css("height", ((needsToZoom)? 100 : 60) + "px");
 		
 	}
 	updateLayout(); //Update Layout
