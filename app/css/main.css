@@ -102,9 +102,9 @@ h1{
 	border-bottom-right-radius: 4px; 
 
 	/*Shadow*/
-	-webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.2);
-	box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.2);
+	-webkit-box-shadow: -3px 4px 5px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: -3px 4px 5px 0px rgba(0,0,0,0.2);
+	box-shadow: -3px 4px 5px 0px rgba(0,0,0,0.2);
 }
 #footer{
 	font-size: 1em;
@@ -136,50 +136,53 @@ h1{
 	bottom: 0px;
 	text-decoration:none;
 	cursor: pointer;
-	white-space:nowrap;
 	float:left;
+
+	padding: 0 0 0 0;
 }
 .sectionDownTab, .sectionDownBottomRightCorner, .sectionDownBottomRightCornerInverse{
 	display:inline-block;
 	position: relative;
-	float:left;	
 
-	height: 100%;
+	float:left;	
 	bottom: 0px;
+	height: 100%;
 }
 .sectionDownTab{
+	
 	/*Shadow*/
-	-webkit-box-shadow: 0px -4px 5px 0px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0px -4px 5px 0px rgba(0,0,0,0.2);
-	box-shadow: 0px -4px 5px 0px rgba(0,0,0,0.2);
+	-webkit-box-shadow: -3px -4px 5px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: -3px -4px 5px 0px rgba(0,0,0,0.2);
+	box-shadow: -3px -4px 5px 0px rgba(0,0,0,0.2);
 
 	/* Only round the top corners */
-	-webkit-border-top-left-radius: 15px;
-	-moz-border-radius-topleft: 15px;
-	border-top-left-radius: 15px;
+	-webkit-border-top-left-radius: 30px 50% ;
+	-moz-border-radius-topleft: 30px 50% ;
+	border-top-left-radius: 30px 50% ;
 
-	-webkit-border-top-right-radius: 20px;
-	-moz-border-radius-topright: 20px;
-	border-top-right-radius: 20px; 
+	-webkit-border-top-right-radius: 34px 70%;
+	-moz-border-radius-topright: 34px 70%;
+	border-top-right-radius: 34px 70%;
 	z-index: 4;
 }
 .sectionDownBottomRightCorner{	
-	width: 10px;
+	width: 20px;
+	margin-left: -1px;
+	margin-top: 1px;
 	background-color: #FCC;		
 	z-index: 5;
 }
 
 .sectionDownBottomRightCornerInverse{
-	width: 10px;
-	left: -10px;
-	background-color: #FFF;
+	width: 22px;
+	margin-left: -21px;
+	bottom: 0px;
 
-	z-index: 6;
+	background-color: #FFF;
+	z-index: 5;
 
 	/* Bottom corners */
-	-webkit-border-bottom-left-radius: 80%;
-	-moz-border-radius-bottomleft: 80%;
-	border-bottom-left-radius: 80%; 
-
-
+	-webkit-border-bottom-left-radius: 80% 70%;
+	-moz-border-radius-bottomleft: 80% 70%;
+	border-bottom-left-radius: 80% 70%;
 }
