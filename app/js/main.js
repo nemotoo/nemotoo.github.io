@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
 	//Setup Sections
+	var isInitComplete = false;
 	var initialSection = 0;
 	var currentSection = initialSection;
 	var sectionTitles =["Block Master","Portal"];
@@ -104,6 +105,7 @@ $(document).ready(function() {
 
 	var resizeId;
 	function updateLayout(){
+
 		var windowWidth = $(window).width()
 		var windowHeight = $(window).height()
 
@@ -159,12 +161,32 @@ $(document).ready(function() {
 	function toggleMenu(){
 		$.fn.fullpage.setAllowScrolling(isMenuVisible);
 		isMenuVisible = !isMenuVisible;
-		// $('#main-nav').toggleClass('is-visible');
-		$('#section'+currentSection).toggleClass("move-out");	
+
+		var contentsElement = $('#section'+currentSection);
+		contentsElement.toggleClass("move-out");	
+
+		var contentsScale = "scale(1)";
+		if(isMenuVisible){
+			contentsScale = "scale(0.6)";
+		}
+
+		contentsElement.css("-webkit-transform",contentsScale);
+		contentsElement.css("-moz-transform",contentsScale);
+		contentsElement.css("-ms-transform",contentsScale);
+		contentsElement.css("-o-transform",contentsScale);
+		contentsElement.css("transform",contentsScale);
+
+		// if(!isMenuVisible){
+		// 	if(isInitComplete){
+		// 		console.log("Toggle");
+		// 		window.setTimeout(function(){ $.fn.fullpage.reBuild(); }, 500);
+		// 	}
+		// }
 		
 	}
 	$('#header').on('click', function(event){
 		event.preventDefault();
 		toggleMenu();
 	});
+	isInitComplete = true;
 })
