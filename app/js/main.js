@@ -1,14 +1,25 @@
+function multiBrowserTransform(selector, value){
+	var contentsElement = $(selector);
+	contentsElement.css("-webkit-transform",value);
+	contentsElement.css("-moz-transform",value);
+	contentsElement.css("-ms-transform",value);
+	contentsElement.css("-o-transform",value);
+	contentsElement.css("transform",value);	
+}
+
 $(document).ready(function() {
+
+	var sectionFromTop = 0;
 
 	//Setup Sections
 	var isInitComplete = false;
 	var initialSection = 0;
 	var currentSection = initialSection;
-	var sectionTitles =["Block Master","Portal"];
+	var sectionTitles =["Block Master","Portal","Contact","Helloworld"];
 	var numOfSections = sectionTitles.length;
 
-	var sectionBackgroundColors = ['#F9F9F9','#666666']
-	var sectionFontColors = ['#666666','#F9F9F9']
+	var sectionBackgroundColors = ['#F9F9F9','#666666','#F9F9F9','#666666'];
+	var sectionFontColors = ['#666666','#F9F9F9','#666666','#F9F9F9'];
 
 	function updateHeaderWithSection(section){
 
@@ -64,6 +75,7 @@ $(document).ready(function() {
 		afterLoad: function(anchorLink, index){
 			index --; //index starts from 1
             sectionOnLoad(anchorLink, index);
+
         }
 	})
 	$('.sectionDownTabHolder').each(function(index){
@@ -144,8 +156,10 @@ $(document).ready(function() {
 		$(".sectionDownTab").css("line-height", sectionDownTabHolderHeight)
 		$(".sectionDownTab").css("font-size", 1 * resFactor + "em")
 
-		// $("#main-nav").css("top", headerHeight + "px");
-		// $("#main-nav").css("height", (windowHeight - headerHeight) + "px");
+		//FullScreen Only!
+		var fullPageDY = currentSection * windowHeight;
+		multiBrowserTransform("#fullpage", "translate3d(0px, -"+fullPageDY+"px, 0px)");
+
 	}
 	updateLayout(); //Update Layout
 	$(window).on("orientationchange",function(){
@@ -157,32 +171,17 @@ $(document).ready(function() {
 	})
 
 	var isMenuVisible = false;
+
 	//Setup Menu
 	function toggleMenu(){
 		$.fn.fullpage.setAllowScrolling(isMenuVisible);
 		isMenuVisible = !isMenuVisible;
 
-		var contentsElement = $('#section'+currentSection);
-		contentsElement.toggleClass("move-out");	
-
 		var contentsScale = "scale(1)";
 		if(isMenuVisible){
 			contentsScale = "scale(0.6)";
 		}
-
-		contentsElement.css("-webkit-transform",contentsScale);
-		contentsElement.css("-moz-transform",contentsScale);
-		contentsElement.css("-ms-transform",contentsScale);
-		contentsElement.css("-o-transform",contentsScale);
-		contentsElement.css("transform",contentsScale);
-
-		// if(!isMenuVisible){
-		// 	if(isInitComplete){
-		// 		console.log("Toggle");
-		// 		window.setTimeout(function(){ $.fn.fullpage.reBuild(); }, 500);
-		// 	}
-		// }
-		
+		multiBrowserTransform('#section'+currentSection, contentsScale);
 	}
 	$('#header').on('click', function(event){
 		event.preventDefault();
