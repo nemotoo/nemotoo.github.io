@@ -48,7 +48,6 @@
 }
 
 /* Design */
-
 body{
 
 	font-family: 'Helvetica Neue','Raleway', 'Helvetica', "Arial", "Lucida Grande", sans-serif;
@@ -59,6 +58,7 @@ body{
 	vertical-align:middle;
 	text-decoration:none;
 
+	background-color: #2E2D32;
 	color: #fff;
 }
 p{
@@ -89,9 +89,9 @@ h1{
 	display:block;
 	width: 100%;
 	background: #333;
-	z-index:8;
 	text-align:center;
 	color: #F9F9F9;
+	cursor: pointer;
 
 	/* Bottom corners */
 	-webkit-border-bottom-left-radius: 4px;
@@ -105,6 +105,8 @@ h1{
 	-webkit-box-shadow: -3px 4px 5px 0px rgba(0,0,0,0.2);
 	-moz-box-shadow: -3px 4px 5px 0px rgba(0,0,0,0.2);
 	box-shadow: -3px 4px 5px 0px rgba(0,0,0,0.2);
+
+	z-index:10;
 }
 #footer{
 	font-size: 1em;
@@ -114,13 +116,13 @@ h1{
 	line-height: 44px;
 	display:block;
 	width: 100%;
-	z-index:8;
 	text-align:right;
 	color: #F9F9F9;
 	padding: 0 0 0 0;
 	bottom: -1px;
 	text-decoration:none;
 	cursor: pointer;
+	z-index:9;
 }
 .sectionDownTabHolder{
 	display:block;
@@ -169,7 +171,7 @@ h1{
 	width: 20px;
 	margin-left: -1px;
 	margin-top: 1px;
-	background-color: #FCC;		
+	background-color: #FFF;		
 	z-index: 5;
 }
 
@@ -179,10 +181,35 @@ h1{
 	bottom: 0px;
 
 	background-color: #FFF;
-	z-index: 5;
+	z-index: 6;
 
 	/* Bottom corners */
 	-webkit-border-bottom-left-radius: 80% 70%;
 	-moz-border-radius-bottomleft: 80% 70%;
 	border-bottom-left-radius: 80% 70%;
+}
+
+/* Nav animation */
+.section{
+	/*Shadow*/
+	-webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+	-moz-box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+	box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+
+	/* Force Hardware Acceleration in WebKit */
+	-webkit-transform: translateZ(0);
+	-webkit-backface-visibility: hidden;
+	-webkit-transition-property: -webkit-transform;
+	-moz-transition-property: -moz-transform;
+	transition-property: transform;
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+}
+.section.move-out{
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  transform: scale(0.8);
 }

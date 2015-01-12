@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
 	//Setup Sections
+	var initialSection = 0;
+	var currentSection = initialSection;
 	var sectionTitles =["Block Master","Portal"];
 	var numOfSections = sectionTitles.length;
 
@@ -31,6 +33,17 @@ $(document).ready(function() {
         footer.css("color",footerFontColor);
 
 	}
+	function sectionOnLoad(anchorLink, index){
+		var header = $('#header')
+        updateHeaderWithSection(index);
+		header.fadeIn(200);
+
+		var footer = $('#footer');
+		updateFooterWithSection(index);
+		footer.fadeIn(200);
+
+		currentSection = index;
+	}
 	$('#fullpage').fullpage({
 		sectionsColor: sectionBackgroundColors,
 		css3: true,
@@ -49,14 +62,7 @@ $(document).ready(function() {
 		},
 		afterLoad: function(anchorLink, index){
 			index --; //index starts from 1
-            
-            var header = $('#header')
-            updateHeaderWithSection(index);
-			header.fadeIn(200);
-
-			var footer = $('#footer');
-			updateFooterWithSection(index);
-			footer.fadeIn(200);
+            sectionOnLoad(anchorLink, index);
         }
 	})
 	$('.sectionDownTabHolder').each(function(index){
@@ -86,8 +92,7 @@ $(document).ready(function() {
 		$.fn.fullpage.moveSectionDown();
 	})
 	//TODO : Routing
-	updateHeaderWithSection(0);
-	updateFooterWithSection(0);
+	sectionOnLoad("", initialSection);
 
 	//Check Mobile
 	window.mobilecheck = function() {
@@ -121,8 +126,9 @@ $(document).ready(function() {
 
 		$('.svgBanner').css("height", ((needsToZoom)? 100 : 60) + "px")
 		
-		$("#header").css("height", 80 * resFactor + "px")
-		$("#header").css("line-height", 80 * resFactor + "px")
+		var headerHeight = 80 * resFactor ;
+		$("#header").css("height", headerHeight + "px")
+		$("#header").css("line-height", headerHeight + "px")
 		$("#header").css("font-size", 2 * resFactor + "em")
 
 		$("#footer").css("height", 44 * resFactor + "px")
@@ -135,7 +141,9 @@ $(document).ready(function() {
 		$(".sectionDownTab").css("width", 20 * resFactor + "%")
 		$(".sectionDownTab").css("line-height", sectionDownTabHolderHeight)
 		$(".sectionDownTab").css("font-size", 1 * resFactor + "em")
-		
+
+		// $("#main-nav").css("top", headerHeight + "px");
+		// $("#main-nav").css("height", (windowHeight - headerHeight) + "px");
 	}
 	updateLayout(); //Update Layout
 	$(window).on("orientationchange",function(){
@@ -145,4 +153,18 @@ $(document).ready(function() {
 	    clearTimeout(resizeId)
 	    resizeId = setTimeout(updateLayout, 500)
 	})
+
+	var isMenuVisible = false;
+	//Setup Menu
+	function toggleMenu(){
+		$.fn.fullpage.setAllowScrolling(isMenuVisible);
+		isMenuVisible = !isMenuVisible;
+		// $('#main-nav').toggleClass('is-visible');
+		$('#section'+currentSection).toggleClass("move-out");	
+		
+	}
+	$('#header').on('click', function(event){
+		event.preventDefault();
+		toggleMenu();
+	});
 })
