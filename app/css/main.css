@@ -45,6 +45,7 @@ h1{
 /* Grid Layout */
 
 .row {
+  display: block;
   margin: 0 -10px;
   margin-bottom: 10px;
 }
@@ -96,9 +97,13 @@ h1{
 	line-height: 88px;
 	display:block;
 	width: 100%;
-	background: #333;
 	text-align:center;
+
+	background: #568D8A;
 	color: #F9F9F9;
+	opacity: 0.95;
+	z-index:1000;
+
 	cursor: pointer;
 
 	/* Bottom corners */
@@ -114,7 +119,38 @@ h1{
 	-moz-box-shadow: -4px 4px 5px 0px rgba(0,0,0,0.2);
 	box-shadow: -4px 4px 5px 0px rgba(0,0,0,0.2);
 
-	z-index:1000;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transition-property: -webkit-transform;
+	-moz-transition-property: -moz-transform;
+	transition-property: transform;
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+
+	-webkit-transform: translateY(0);
+	-moz-transform: translateY(0);
+	-ms-transform: translateY(0);
+	-o-transform: translateY(0);
+	transform: translateY(0);
+
+	-webkit-perspective: 1000;
+
+}
+#header.move-up{
+	-webkit-transform: translateY(-100%) scale(0.9);
+	-moz-transform: translateY(-100%) scale(0.9);
+	-ms-transform: translateY(-100%) scale(0.9);
+	-o-transform: translateY(-100%) scale(0.9);
+	transform: translateY(-100%) scale(0.9);
+}
+.header-menu-icon{
+	margin-left: 1em;
+	margin-right: -4em;
+	float: left;
+}
+.header-menu-icon-close{
+	display: none;
 }
 #footer{
 	font-size: 1em;
@@ -217,11 +253,8 @@ h1{
 	-moz-transition-duration: 0.3s;
 	transition-duration: 0.3s;
 }
-#main-nav a{
-  color: white;
-  text-decoration: none;
-}
-.cd-primary-nav {
+
+#main-nav{
   /* by default it's hidden - on top of the viewport */
   position: absolute;
   z-index: 200;
@@ -236,18 +269,19 @@ h1{
   background: rgba(2, 23, 37, 0.99);
   
   text-align: center;
-  padding: 60px 0;
+  padding: 80px 0;
 
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   overflow: auto;
   /* this fixes the buggy scrolling on webkit browsers - mobile devices only - when overflow property is applied */
   -webkit-overflow-scrolling: touch;
-  -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  -o-transform: translateY(-100%);
-  transform: translateY(-100%);
+  -webkit-transform: translateY(-100%) scale(0.8);
+  -moz-transform: translateY(-100%) scale(0.8);
+  -ms-transform: translateY(-100%) scale(0.8);
+  -o-transform: translateY(-100%) scale(0.8);
+  transform: translateY(-100%) scale(0.8);
+
   -webkit-transition-property: -webkit-transform;
   -moz-transition-property: -moz-transform;
   transition-property: transform;
@@ -255,42 +289,38 @@ h1{
   -moz-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-.cd-primary-nav li {
-  font-size: 22px;
-  font-size: 1.375rem;
-  font-weight: 300;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin: .2em 0;
-  text-transform: capitalize;
-}
-.cd-primary-nav a {
-  display: inline-block;
+#main-nav a{
+  color: white;
+  text-decoration: none;
+  font-size: 2em;
+  display: block;
+  margin: 0em 2em;
   padding: .4em 1em;
   border-radius: 0.25em;
   -webkit-transition: background 0.2s;
   -moz-transition: background 0.2s;
   transition: background 0.2s;
 }
-.no-touch .cd-primary-nav a:hover {
+.no-touch #main-nav a:hover {
   background-color: #e36767;
 }
-.cd-primary-nav .cd-label {
+.main-nav-label{
+  display: block;
   color: #06446e;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 14px;
-  font-size: 0.875rem;
+  font-size: 1em;
   margin: 2.4em 0 .8em;
 }
-.cd-primary-nav .cd-social {
+#main-nav .cd-social {
   display: inline-block;
   margin: 0 .4em;
 }
-.cd-primary-nav .cd-social a {
+#main-nav .cd-social a {
   width: 44px;
   height: 44px;
   padding: 0;
+  margin: 0;
   background-image: url("../res/cd-socials.svg");
   background-repeat: no-repeat;
   /* image replacement */
@@ -298,25 +328,26 @@ h1{
   text-indent: 100%;
   white-space: nowrap;
 }
-.cd-primary-nav .cd-facebook a {
+#main-nav .cd-facebook a {
   background-position: 0 0;
 }
-.cd-primary-nav .cd-instagram a {
+#main-nav .cd-instagram a {
   background-position: -44px 0;
 }
-.cd-primary-nav .cd-dribbble a {
+#main-nav .cd-dribbble a {
   background-position: -88px 0;
 }
-.cd-primary-nav .cd-twitter a {
+#main-nav .cd-twitter a {
   background-position: -132px 0;
 }
-.cd-primary-nav.is-visible {
+#main-nav.is-visible {
   -webkit-transform: translateY(0);
   -moz-transform: translateY(0);
   -ms-transform: translateY(0);
   -o-transform: translateY(0);
   transform: translateY(0);
 }
+/*Nav circle*/
 #fp-nav{
 	right: 0;
 	left: 0;
@@ -326,13 +357,8 @@ img{
 	max-height:80%;
 	max-width:80%;
 }
-
-/* and (min-resolution: 192dpi), 
-       screen and (min-height: 768px) and (-webkit-min-device-pixel-ratio: 2),
-       screen and (min-height: 600px) and (max-resolution: 192dpi), 
-{*/
 /* Low res */
-@media screen and (max-height: 480px){
+@media screen and (max-height: 600px){
 	body{
 		font-weight: 200;
 	}
@@ -349,15 +375,16 @@ img{
 		line-height: 30px;
 		font-size: 0.7em;	
 	}
-	.cd-primary-nav {
-		padding: 40px 0;
+	#main-nav{
+		padding: 20px 0;
 	}
-	.cd-primary-nav li {
-	    font-size: 1em;
+	#main-nav a{
+		font-size: 1em;
 	}
-	.cd-primary-nav .cd-label {
+	.main-nav-label{
 		font-size: 0.8em;
 	}
+
 	.svgBanner{
 		height: 30px;
 	}
