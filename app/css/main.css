@@ -4,6 +4,11 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+html {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+}
 body{
 	font-family: 'Helvetica Neue','Raleway', 'Helvetica', "Arial", "Lucida Grande", sans-serif;
 	font-size: 100%;
@@ -87,6 +92,10 @@ h1{
 	}
 }
 
+/* Styles*/
+.section-desc-box{
+	opacity: 0;
+}
 /* Fixed header and footer.
 * --------------------------------------- */
 #header{
@@ -269,7 +278,7 @@ h1{
   background: rgba(2, 23, 37, 0.99);
   
   text-align: center;
-  padding: 80px 0;
+  padding: 200px 0;
 
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -289,12 +298,13 @@ h1{
   -moz-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
+
 #main-nav a{
   color: white;
   text-decoration: none;
   font-size: 2em;
   display: block;
-  margin: 0em 2em;
+  margin: 0.5em 2em;
   padding: .4em 1em;
   border-radius: 0.25em;
   -webkit-transition: background 0.2s;
@@ -310,7 +320,8 @@ h1{
   text-transform: uppercase;
   font-weight: 700;
   font-size: 1em;
-  margin: 2.4em 0 .8em;
+  margin: 0;
+  margin-bottom: 1em;
 }
 #main-nav .cd-social {
   display: inline-block;
@@ -352,13 +363,23 @@ h1{
 	right: 0;
 	left: 0;
 }
+.intro{
+  -webkit-transform: translateY(-10px);
+  -moz-transform: translateY(-10px);
+  -ms-transform: translateY(-10px);
+  -o-transform: translateY(-10px);
+  transform: translateY(-10px);
+}
 /* Media */
 img{
 	max-height:80%;
 	max-width:80%;
 }
-/* Low res */
-@media screen and (max-height: 600px){
+/* Small Screen */
+@media screen and (-webkit-min-device-pixel-ratio: 2) and (max-height: 600px),
+       screen and (min-resolution: 192dpi) and (max-height: 600px),
+       screen and (-webkit-min-device-pixel-ratio: 1) and (max-height: 500px),
+       screen and (max-resolution: 192dpi) and (max-height: 500px){
 	body{
 		font-weight: 200;
 	}
@@ -376,15 +397,19 @@ img{
 		font-size: 0.7em;	
 	}
 	#main-nav{
-		padding: 20px 0;
+		padding: 50px 0;
 	}
 	#main-nav a{
 		font-size: 1em;
+		margin: 0.2em 2em;
 	}
 	.main-nav-label{
 		font-size: 0.8em;
+		margin-bottom: 0.5em;
 	}
-
+	.sectionDownTab{
+		font-size: 0.7em;
+	}
 	.svgBanner{
 		height: 30px;
 	}

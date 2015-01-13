@@ -26,6 +26,7 @@ $(document).ready(function() {
 	var currentSection = initialSection;
 	// var sectionTitles =["Block Master","Portal","Contact","Helloworld"];
 	var sectionTitles =["Block Master","Portal"];
+	var sectionDescriptions =["Block Master","Comming soon.."];
 	var numOfSections = sectionTitles.length;
 
 	var sectionBackgroundColors = ['#F9F9F9','#666666'];
@@ -48,11 +49,12 @@ $(document).ready(function() {
 			}
 		}, 800);
 	}
-	function updateTextWithBlinkAnimation(selector, text, textColor){
+	function blinkElement(selector, onFadeOutComplete){
 		var target = $(selector);
 		target.fadeOut(400, function(){ 
-			target.text(text);
-			target.css("color", textColor);
+			if(onFadeOutComplete){
+				onFadeOutComplete();
+			}
 			target.fadeIn(1000); 
 		});
 	}
@@ -72,15 +74,18 @@ $(document).ready(function() {
 	function updateFooterWithSection(section){
 
         var resourceIndex = section
-        var footerText = $('#footer').text();
-        var footerFontColor = sectionFontColors[resourceIndex];
-        updateTextWithBlinkAnimation('#footer', footerText, footerFontColor);
 
+        var footerFontColor = sectionFontColors[resourceIndex];
+        blinkElement('#footer', function(){
+        	var footerElement = $('#footer');
+        	footerElement.css("color", footerFontColor);
+        });
 	}
 	function sectionOnLoad(index){
-
 		currentSection = index;
-
+		$('#section'+index+" .section-desc-box").animate({
+		    opacity: 1
+		  }, 1000);
 		//TODO: Lang & Animation
 	}
 	$('#fullpage').fullpage({
@@ -96,6 +101,10 @@ $(document).ready(function() {
 
 			updateHeaderWithSection(nextIndex);
 			updateFooterWithSection(nextIndex);
+
+			$('#section'+index+" .section-desc-box").animate({
+			    opacity: 0
+			}, 1000);
 		},
 		afterLoad: function(anchorLink, index){
 			index --; //index starts from 1
@@ -129,8 +138,6 @@ $(document).ready(function() {
 		$.fn.fullpage.moveSectionDown();
 	})
 
-	
-
 	//Setup Menu
 	function toggleMenu(){
 		$.fn.fullpage.setAllowScrolling(isMenuOpened);
@@ -154,7 +161,13 @@ $(document).ready(function() {
 		event.preventDefault();
 		toggleMenu();
 	});
-	isInitComplete = true;
+	//Custom section style
+	for (var i = 0; i < numOfSections; i++) {
+		var section = $('#section'+i);
+		var sectionDescLabel = section.find('.section-desc-label');
+		sectionDescLabel.css("color",sectionFontColors[i]);
+		sectionDescLabel.text(sectionDescriptions[i]);
+	}
 	setTimeout(function(){
 	//TODO : Routing
 		updateHeaderWithSection(initialSection);
