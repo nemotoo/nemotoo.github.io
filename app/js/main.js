@@ -89,7 +89,7 @@ $(document).ready(function() {
 			sectionElement.find(".section-desc-box").animate({
 			    opacity: 1
 			}, 1000);
-		},1500)
+		},1000)
 		sectionElement.find(".animation-box").show();
 		//TODO: Lang & Animation
 	}
