@@ -88,8 +88,8 @@ $(document).ready(function() {
 		setTimeout(function(){
 			sectionElement.find(".section-desc-box").animate({
 			    opacity: 1
-			}, 1000);
-		},1000)
+			}, 500);
+		},1500)
 		sectionElement.find(".animation-box").show();
 		//TODO: Lang & Animation
 	}
