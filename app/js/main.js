@@ -83,9 +83,14 @@ $(document).ready(function() {
 	}
 	function sectionOnLoad(index){
 		currentSection = index;
-		$('#section'+index+" .section-desc-box").animate({
-		    opacity: 1
-		  }, 1000);
+
+		var sectionElement = $('#section'+index);
+		setTimeout(function(){
+			sectionElement.find(".section-desc-box").animate({
+			    opacity: 1
+			}, 1000);
+		},1500)
+		sectionElement.find(".animation-box").show();
 		//TODO: Lang & Animation
 	}
 	$('#fullpage').fullpage({
@@ -102,9 +107,11 @@ $(document).ready(function() {
 			updateHeaderWithSection(nextIndex);
 			updateFooterWithSection(nextIndex);
 
-			$('#section'+index+" .section-desc-box").animate({
+			var sectionElement = $('#section'+index);
+			sectionElement.find(".section-desc-box").animate({
 			    opacity: 0
 			}, 1000);
+			sectionElement.find(".animation-box").hide();
 		},
 		afterLoad: function(anchorLink, index){
 			index --; //index starts from 1

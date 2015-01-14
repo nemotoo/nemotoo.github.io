@@ -47,20 +47,21 @@ h1{
 .svgBanner{
 	height: 60px;
 }
-
 /* Grid Layout */
 
 .row {
   display: block;
-  margin: 0 -10px;
-  margin-bottom: 10px;
+  /*margin: 0 -10px;*/
+  /*margin-bottom: 10px;*/
+  margin: 0;
+  margin-bottom: 0;
 }
 .row:last-child {
   margin-bottom: 0;
 }
-[class*="col-"] {
+/*[class*="col-"] {
   padding: 10px;
-}
+}*/
 /*@media screen and ( min-width: 500px ) {*/
 @media screen and (orientation: landscape){
 	.row {
@@ -306,7 +307,7 @@ h1{
   text-decoration: none;
   font-size: 2em;
   display: block;
-  margin: 0.5em 4em;
+  margin: 0.5em 2em;
   padding: .4em 1em;
   border-radius: 0.25em;
   -webkit-transition: background 0.2s;
@@ -485,6 +486,7 @@ h1{
 		min-height: 34px;
 	}
 }*/
+
 /* Media */
 /* Small Screen */
 @media screen and (-webkit-min-device-pixel-ratio: 2) and (max-height: 600px),
@@ -493,9 +495,6 @@ h1{
        screen and (max-resolution: 192dpi) and (max-height: 500px){
 	body{
 		font-weight: 200;
-	}
-	.left-box {
-		height: 128px;
 	}
 	#header{
 		height: 44px;
@@ -508,7 +507,8 @@ h1{
 		font-size: 0.7em;	
 	}
 	#main-nav{
-		padding: 50px 0;
+		padding: 0;
+		padding-top: 60px;
 	}
 	#main-nav a{
 		font-size: 1em;
@@ -525,14 +525,17 @@ h1{
 	.svgBanner{
 		height: 30px;
 	}
-	#main-nav .nav-social a {
-		width: 30px;
-		height: 30px;
+	#main-nav .nav-button, #main-nav .nav-icon-button{
+	  font-size: 1em;
+	  margin: 0.5em 1em;
+	  padding: 0.4em 0.5em;
 	}
-	#main-nav .nav-social img {
+	#main-nav .nav-icon-button{
+		margin: 0.5em 0.1em;
+	}
+	#main-nav .nav-icon-button img {
 	  width: 24px;
 	  height: 24px;
 	  margin-top: 3px;
 	}
-
 }
