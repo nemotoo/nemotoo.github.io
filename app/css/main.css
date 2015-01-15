@@ -320,12 +320,13 @@ h1{
 }
 .main-nav-label{
   display: block;
-  color: #06446e;
+  color: lime;
   text-transform: uppercase;
   font-size: 2em;
   font-weight: 300;
   margin: 0;
   padding: 0;
+  padding-top: 0.5em;
   margin-bottom: 1em;
 }
 #main-nav .nav-icon-button {
@@ -350,6 +351,35 @@ h1{
   -ms-transform: translateY(0);
   -o-transform: translateY(0);
   transform: translateY(0);
+}
+.nav-footer{
+	font-size: 1em;
+	position: fixed;
+	right: 10px;
+	bottom: 10px;
+	color: #FFFFFF;
+	z-index: 10000;
+
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	
+	background-image: -webkit-gradient(
+		linear,
+		right top,
+		left bottom,
+		color-stop(0, #C22D2B),
+		color-stop(1, #BF45E8)
+	);
+	background-image: -o-linear-gradient(left bottom, #C22D2B 0%, #BF45E8 100%);
+	background-image: -moz-linear-gradient(left bottom, #C22D2B 0%, #BF45E8 100%);
+	background-image: -webkit-linear-gradient(left bottom, #C22D2B 0%, #BF45E8 100%);
+	background-image: -ms-linear-gradient(left bottom, #C22D2B 0%, #BF45E8 100%);
+	background-image: linear-gradient(to left bottom, #C22D2B 0%, #BF45E8 100%);  
+}
+.nav-footer a{
+	margin: 0;
+	padding: 0;
+	text-decoration:none;
 }
 /*Nav circle*/
 #fp-nav{
@@ -510,14 +540,10 @@ h1{
 		padding: 0;
 		padding-top: 60px;
 	}
-	#main-nav a{
-		font-size: 1em;
-		margin: 0.5em 2em;
-		padding: 0.3em;
-	}
 	.main-nav-label{
 		font-size: 0.8em;
 		margin-bottom: 0.3em;
+		padding-top: 0.3em;
 	}
 	.sectionDownTab{
 		font-size: 0.7em;
