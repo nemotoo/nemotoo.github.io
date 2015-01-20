@@ -24,8 +24,7 @@ $(document).ready(function() {
 	var isInitComplete = false;
 	var initialSection = 0;
 	var currentSection = initialSection;
-	// var sectionTitles =["Block Master","Portal","Contact","Helloworld"];
-	var sectionTitles =["Block Master","Portal"];
+	var sectionTitles =["Blocking Master","Portal"];
 	var sectionDescriptions =["","Comming soon.."];
 	var numOfSections = sectionTitles.length;
 
