@@ -29,6 +29,7 @@ nav, ol, ul, li, a{
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	text-decoration:none;
 }
 ol, ul {
 	list-style: none;
