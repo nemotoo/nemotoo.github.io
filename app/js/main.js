@@ -25,7 +25,7 @@ $(document).ready(function() {
 	var initialSection = 0;
 	var currentSection = initialSection;
 	var sectionTitles =["Blocking Master","Portal"];
-	var sectionDescriptions =["","Comming soon.."];
+	var sectionDescriptions =["In Review..","Comming soon.."];
 	var numOfSections = sectionTitles.length;
 
 	var sectionBackgroundColors = ['#F9F9F9','#666666'];
