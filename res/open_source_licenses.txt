@@ -1,16 +1,16 @@
 <Homepage>
 
 - Fullpage.js
-https://github.com/alvarotrigo/fullPage.js
+https://github.com/alvarotrigo/fullPage.js#license
 
-- jquery
-http://jquery.com
+- jQuery
+https://jquery.org/license/
 
 
 <Blocking Master>
 
 - LesliesHand Font
-http://www.1001fonts.com/leslieshand-font.html
+http://www.1001fonts.com/leslieshand-font.html#license
 
 <Portal>
 
