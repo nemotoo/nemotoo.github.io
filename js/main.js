@@ -97,6 +97,7 @@ $(document).ready(function() {
 		css3: true,
 		continuousVertical: true,
 		navigation: true,
+		navigationPosition: "left",
 		resize: false,
 		onLeave: function(index, nextIndex, direction){
 			//index starts from 1

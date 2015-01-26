@@ -209,7 +209,7 @@ h1{
 	height: 100%;
 }
 .sectionDownTab{	
-	width: 30%;
+	width: 40%;
 	max-width: 200px;
 	line-height: 44px;
 	font-size: 1em;
@@ -385,11 +385,11 @@ h1{
 	text-decoration:none;
 }
 /*Nav circle*/
-#fp-nav{
+/*#fp-nav{
 	right: 0;
 	left: 0;
 	width: 20%;
-}
+}*/
 .intro{
   -webkit-transform: translateY(-10px);
   -moz-transform: translateY(-10px);
