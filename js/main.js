@@ -25,7 +25,7 @@ $(document).ready(function() {
 	var initialSection = 0;
 	var currentSection = initialSection;
 	var sectionTitles =["Blocking Master","Portal"];
-	var sectionDescriptions =["","Coming soon.."];
+	var sectionDescriptions =["Portal Mini Game #1 <br> Blocking Master","Coming soon.."];
 	var numOfSections = sectionTitles.length;
 
 	var sectionBackgroundColors = ['#F9F9F9','#666666'];
@@ -172,7 +172,8 @@ $(document).ready(function() {
 		var section = $('#section'+i);
 		var sectionDescLabel = section.find('.section-desc-label');
 		sectionDescLabel.css("color",sectionFontColors[i]);
-		sectionDescLabel.text(sectionDescriptions[i]);
+		// sectionDescLabel.text(sectionDescriptions[i]);
+		sectionDescLabel.html(sectionDescriptions[i]);
 	}
 	setTimeout(function(){
 	//TODO : Routing

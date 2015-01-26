@@ -44,6 +44,7 @@ h1{
 	color: #fff;
 	margin:0;
 	padding:0;
+	font-size: 2em;
 }
 .svgBanner{
 	height: 60px;
@@ -528,6 +529,9 @@ h1{
        screen and (max-resolution: 192dpi) and (max-height: 500px){
 	body{
 		font-weight: 200;
+	}
+	h1{
+		font-size: 1.5em;
 	}
 	#header{
 		height: 44px;
